@@ -1,0 +1,27 @@
+{% extends 'base' %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+        {{ product.name }}
+    </div>
+    <div class="example-wrapper">
+        {{ product.description }}
+    </div>
+    <div class="example-wrapper">
+        {{ product.price }}  €
+    </div>
+    <div class="example-wrapper">
+        {{ form(form) }}
+    </div>
+
+    <div class="error-message">
+        {% if app.session.get('error') != null %}
+            {{ app.session.get('error') }}
+        {% endif %}
+    </div>
+{% endblock %}

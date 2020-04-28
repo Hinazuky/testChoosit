@@ -1,0 +1,17 @@
+
+<div class="row justify-content-around">
+    <h1 class="col-sm-3">
+        <a href="{{ path('product') }}">Market Place</a>
+
+    </h1>
+    <div class="col-sm-3">
+        Votre pannier contient
+        {% if app.session.get('basket') != null %}
+            {{ app.session.get('basket')| length }}
+        {% else %}
+            0
+        {% endif %} produit
+
+    </div>
+    <a href="{{ path('productBasket') }}">voir le pannier</a>
+</div>

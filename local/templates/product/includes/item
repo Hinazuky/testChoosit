@@ -1,0 +1,21 @@
+{% block item %}
+    <style>
+        .example-wrapper { margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5;
+            padding: 2px 6px; }
+    </style>
+    <a href="{{ path('product_show', {id: entity.id}) }}" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ entity.name }}</h5>
+            <small class="text-muted">{{ entity.price }} €</small>
+        </div>
+        <p class="mb-1">{{ entity.description }}</p>
+        {% if from == 'basket' %}
+            <p class="mb-1">Quantité</p>
+            {{ entity.quantity }}
+        {% endif %}
+    </a>
+{% endblock %}
