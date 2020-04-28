@@ -23,6 +23,13 @@ class ProductController extends AbstractController
         $products = $this->getDoctrine()
             ->getRepository(Product::class)
             ->findby(array(),array('name' => 'asc'));
-        return $products;
+        if (empty($products)){
+            return new response(['Message' => 'no resource found'], 404, array(
+                'Content-Type' => 'application/json'
+            ));
+        }
+        return new response(json_encode($products), 200, array(
+        'Content-Type' => 'application/json'
+    ));
     }
 }
