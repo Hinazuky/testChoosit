@@ -31,6 +31,7 @@ class AppFixtures extends Fixture
         for ($i = 0; $i < 12; $i++) {
             $product = new Product();
             $product->setName($nameProduct[$i]);
+            $product->setSlug($nameProduct[$i]);
             $product->setPrice($this->faker->numberBetween(1,1000));
             $product->setDescription($this->faker->text);
             $manager->persist($product);

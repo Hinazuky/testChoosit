@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Command\ExportCommand;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
@@ -24,7 +25,12 @@ class Kernel extends BaseKernel
             }
         }
     }
-
+    protected function build(ContainerBuilder $container)
+    {
+        $container->registerForAutoconfiguration(ExportCommand::class)
+            ->addTag('console.command')
+        ;
+    }
     public function getProjectDir(): string
     {
         return \dirname(__DIR__);

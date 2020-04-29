@@ -7,7 +7,7 @@
         .example-wrapper code { background: #F5F5F5;
             padding: 2px 6px; }
     </style>
-    <a href="{{ path('product_show', {id: entity.id}) }}" class="list-group-item list-group-item-action">
+    <a href="{{ path('product_show', {slug: entity.slug}) }}" class="list-group-item list-group-item-action">
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{ entity.name }}</h5>
             <small class="text-muted">{{ entity.price }} €</small>

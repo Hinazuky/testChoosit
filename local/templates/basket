@@ -20,6 +20,14 @@
             {% if app.session.get('basket') != null %}
                 {% for entity in app.session.get('basket') %}
                     {% include 'product/includes/item' with {'entity': entity, 'from' : 'basket'} %}
+                    <div class="example-wrapper">
+                        <div class="example-wrapper">
+                            {{ form(arrayFormChange[loop.index-1]) }}
+                        </div>
+                        <div class="example-wrapper">
+                            {{ form(arrayFormDelete[loop.index-1]) }}
+                        </div>
+                    </div>
                 {% endfor %}
             {% else %}
                 Votre pannier est vide, il mérite d'être remplis
